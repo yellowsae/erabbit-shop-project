@@ -41,7 +41,7 @@
           color: #cdcdcd;
           line-height: 1;
           display: inline-block;
-
+          border-left: 1px solid #666;
           i {
             font-size: 14px;
             margin-right: 2px;
