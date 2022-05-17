@@ -4,14 +4,14 @@
       <router-link to="/">首页</router-link>
     </li>
     <li v-for="item in list" :key="item.id">
-      <router-link to="/">{{item.name}}</router-link>
+      <router-link to="/">{{ item.name }}</router-link>
       <!-- 列表下的img -->
       <div class="layer">
         <ul>
           <li v-for="sub in item.children" :key="sub.id">
             <router-link to="/">
               <img :src="sub.picture" alt="" />
-              <p>{{sub.name}}</p>
+              <p>{{ sub.name }}</p>
             </router-link>
           </li>
         </ul>
@@ -21,15 +21,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from "vue"
 import { categoryStore } from "../store/modules/category"
+// list 的类型
+// import { ICategory } from "../utils/type"
+import { storeToRefs } from "pinia"
 const cStore = categoryStore()
 
-// 使用 category 中的数据
-const list = computed(() => {
-  return cStore.list
-})
 
+// let lists = ref([])
+// 使用 category 中的数据
+// lists.value = computed(() => cStore.list)
+const { list } = storeToRefs(cStore)
 
 </script>
 
