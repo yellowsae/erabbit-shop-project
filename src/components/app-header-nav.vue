@@ -3,13 +3,13 @@
     <li class="home">
       <router-link to="/">首页</router-link>
     </li>
-    <li v-for="item in list" :key="item.id">
-      <router-link to="/">{{ item.name }}</router-link>
+    <li v-for="item in list" :key="item.id" @mouseenter="show(item)" @mouseleave="hide(item)">
+      <router-link :to="`/category/${item.id}`" @click="hide(item)">{{ item.name }}</router-link>
       <!-- 列表下的img -->
-      <div class="layer">
+      <div class="layer"  :class="{open:item.open}">
         <ul>
           <li v-for="sub in item.children" :key="sub.id">
-            <router-link to="/">
+            <router-link :to="`/category/sub/${sub.id}`" @click="hide(item)">
               <img :src="sub.picture" alt="" />
               <p>{{ sub.name }}</p>
             </router-link>
@@ -33,6 +33,13 @@ const cStore = categoryStore()
 // lists.value = computed(() => cStore.list)
 const { list } = storeToRefs(cStore)
 
+const show = (item: any) => {
+  cStore.show(item)
+}
+
+const hide = (item: any) => {
+  cStore.hide(item)
+}
 </script>
 
 <style lang="less" scoped>
@@ -65,10 +72,10 @@ const { list } = storeToRefs(cStore)
       }
 
       // 子分类
-      >.layer {
-        height: 132px;
-        opacity: 1;
-      }
+      // >.layer {
+      //   height: 132px;
+      //   opacity: 1;
+      // }
     }
   }
 }
@@ -114,6 +121,11 @@ const { list } = storeToRefs(cStore)
         }
       }
     }
+  }
+
+  &.open {
+    height: 132px;
+    opacity: 1;
   }
 }
 </style>
