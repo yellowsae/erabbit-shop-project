@@ -3,31 +3,33 @@
     <li class="home">
       <router-link to="/">首页</router-link>
     </li>
-    <li><a href="#">美食</a>
+    <li v-for="item in list" :key="item.id">
+      <router-link to="/">{{item.name}}</router-link>
       <!-- 列表下的img -->
       <div class="layer">
         <ul>
-          <li v-for="i in 10" :key="i">
-            <a href="#">
-              <img src="http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/img/category%20(4).png" alt="">
-              <p>果干</p>
-            </a>
+          <li v-for="sub in item.children" :key="sub.id">
+            <router-link to="/">
+              <img :src="sub.picture" alt="" />
+              <p>{{sub.name}}</p>
+            </router-link>
           </li>
         </ul>
       </div>
     </li>
-    <li><a href="#">餐厨</a></li>
-    <li><a href="#">艺术</a></li>
-    <li><a href="#">电器</a></li>
-    <li><a href="#">居家</a></li>
-    <li><a href="#">洗护</a></li>
-    <li><a href="#">孕婴</a></li>
-    <li><a href="#">服装</a></li>
-    <li><a href="#">杂货</a></li>
   </ul>
 </template>
 
 <script lang="ts" setup>
+import { computed } from "vue"
+import { categoryStore } from "../store/modules/category"
+const cStore = categoryStore()
+
+// 使用 category 中的数据
+const list = computed(() => {
+  return cStore.list
+})
+
 
 </script>
 

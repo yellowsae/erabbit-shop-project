@@ -16,6 +16,13 @@
 import AppTopNav from '@/components/app-topnav.vue'
 import AppHeader from '@/components/app-header.vue'
 import AppFooter from '@/components/app-footer.vue'
+
+// 初始化时， 获取数据
+import { categoryStore } from "../store/modules/category"
+const cStore = categoryStore()
+cStore.getList()
+
+
 </script>
 <style lang="less">
 .app-body {

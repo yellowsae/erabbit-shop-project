@@ -2,7 +2,7 @@
   <header class="app-header">
     <div class="container">
       <h1 class="logo">
-        <router-link to="/">小兔鲜</router-link> 
+        <router-link to="/">小兔鲜</router-link>
       </h1>
       <!-- Header 部分的 list  -->
       <AppHeaderNav />
@@ -21,6 +21,9 @@
 
 <script lang="ts" setup>
 import AppHeaderNav from "./app-header-nav.vue"
+
+
+
 </script>
 
 <style lang="less" scoped>
@@ -53,13 +56,13 @@ import AppHeaderNav from "./app-header-nav.vue"
       position: relative;
       border-bottom: 1px solid #e7e7e7;
       line-height: 32px;
-      
+
       .icon-search {
         // 搜索的 icon 图标
         font-size: 18px;
         margin-left: 5px;
       }
-      
+
       input {
         width: 140px;
         padding-left: 5px;
@@ -69,15 +72,18 @@ import AppHeaderNav from "./app-header-nav.vue"
 
     .cart {
       width: 50px;
+
       .curr {
         height: 32px;
         line-height: 32px;
         text-align: center;
         position: relative;
         display: block;
+
         .icon-cart {
           font-size: 22px;
         }
+
         em {
           font-style: normal;
           position: absolute;
