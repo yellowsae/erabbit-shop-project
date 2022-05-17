@@ -3,7 +3,7 @@
   <AppTopNav />
   <!-- <header>公共头部</header> -->
   <AppHeader />
-  <main>
+  <main class="app-body">
     <!-- 主题的内容 -->
     <!-- 二级路由 -->
     <router-view />
@@ -18,5 +18,7 @@ import AppHeader from '@/components/app-header.vue'
 import AppFooter from '@/components/app-footer.vue'
 </script>
 <style lang="less">
-  
+.app-body {
+  min-height: 600px;
+}
 </style>
