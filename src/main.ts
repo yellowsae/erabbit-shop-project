@@ -7,6 +7,7 @@ import "normalize.css"
 import '@/assets/styles/common.less'
 
 
+
 const app = createApp(App)
 
 app.use(router).use(pinia)

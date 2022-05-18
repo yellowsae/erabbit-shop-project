@@ -3,6 +3,8 @@
   <AppTopNav />
   <!-- <header>公共头部</header> -->
   <AppHeader />
+  <!-- 2.2 固定头部布局-->
+  <AppHeaderSticky class="app-header-sticky" />
   <main class="app-body">
     <!-- 主题的内容 -->
     <!-- 二级路由 -->
@@ -16,6 +18,7 @@
 import AppTopNav from '@/components/app-topnav.vue'
 import AppHeader from '@/components/app-header.vue'
 import AppFooter from '@/components/app-footer.vue'
+import AppHeaderSticky from '@/components/app-header-sticky.vue'
 import { onMounted } from 'vue'
 // 初始化时， 获取数据
 import { categoryStore } from "../store/modules/category"
@@ -31,4 +34,5 @@ onMounted(() => {
 .app-body {
   min-height: 600px;
 }
+
 </style>
