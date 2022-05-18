@@ -5,6 +5,8 @@
       <div class="container">
         <!-- 左侧分类 -->
         <HomeCategory />
+        <!-- 轮播图 -->
+        <HomeBanner />
       </div>
     </div>
   </div>
@@ -12,6 +14,8 @@
 
 <script lang="ts" setup>
 import HomeCategory from './components/home-category.vue';
+// 轮播图
+import HomeBanner from './components/home-banner.vue';
 </script>
 
 <style lang="less" scoped>

@@ -7,7 +7,7 @@
         <router-link :to="`/category/${item.id}`">{{ item.name }}</router-link>
         <router-link v-for="sub in item.children" :key="sub.id" :to="`/category/sub/${sub.id}`">{{ sub.name }}
         </router-link>
-        <!-- 用组件完成左侧分类骨架效果 -->
+        <!-- 用组件完成左侧分类骨架效果, 当 item.children 还没有加载出来时， 会有一个动画的加载效果 -->
         <template v-if="!item.children">
           <XtxSkeleton width="60px" height="18px" style="margin-right:5px" bg="rgba(255,255,255,0.2)" />
           <XtxSkeleton width="50px" height="18px" bg="rgba(255,255,255,0.2)" />
@@ -19,6 +19,7 @@
       <h4 v-if="categoryId">{{ categoryId === 'brand' ? '品牌' : '分类' }}推荐 <small>根据您的购买或浏览记录推荐</small> </h4>
       <ul v-if="currCategory && currCategory.goods">
         <li v-for="item in currCategory.goods" :key="item.id">
+        <!-- 这里循环的商品 点击跳转 因该到 付款中，之后做付款组件时再补上 -->
           <router-link to="/">
             <img :src="item.picture" alt="">
             <div class="info">
@@ -98,6 +99,7 @@ const categoryId = ref<string>('')
 const currCategory = computed(() => {
   return cStore.list.find(item => item.id === categoryId.value)
 })
+
 </script>
 
 <style lang="less" scoped>

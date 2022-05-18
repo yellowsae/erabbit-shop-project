@@ -1,7 +1,19 @@
 // 获取请求
 import request from "../utils/request"
 
-// 到处 函数
+// 获取品牌的数据
 export const findBrand = (limit: number) => {
   return request('/home/brand', 'get', { limit })
+}
+
+
+/**
+ * 首页-广告区域(pc-小程序)
+ * @param {*} distributionSite 广告区域展示位置（投放位置 投放位置，1为首页，2为分类商品页） 默认是1
+ * @returns
+ */
+
+// 获取轮播图
+export const findBanner = (distributionSite: number = 1) => {
+  return request('/home/banner', 'get', {distributionSite: distributionSite})
 }
