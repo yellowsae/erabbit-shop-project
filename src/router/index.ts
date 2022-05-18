@@ -13,6 +13,7 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         component: () => import('@/views/home/index.vue')
       },
+      // 配置路由和组件实现跳转,  根据路由在组件中跳转， 传递过来的参数
       {
         path: '/category/:id', 
         component: () => import('@/views/category/index.vue')
