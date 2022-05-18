@@ -6,9 +6,11 @@ import pinia from './store'
 import "normalize.css"
 import '@/assets/styles/common.less'
 
+// 导入自己封装的组件库
+import XtxUI  from './components/library'
 
 
 const app = createApp(App)
 
-app.use(router).use(pinia)
+app.use(router).use(pinia).use(XtxUI)
 app.mount('#app')

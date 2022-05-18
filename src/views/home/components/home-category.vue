@@ -1,12 +1,16 @@
 <template>
-  <div class="home-category"  @mouseleave="categoryId = null">
+  <div class="home-category" @mouseleave="categoryId = null">
     <ul class="menu">
       <!-- 循环 li 做轮播图的展示 -->
       <li v-for="item in menuList" :key="item.id" :class="{ active: categoryId && categoryId === item.id }"
         @mouseenter="categoryId = item.id">
         <router-link :to="`/category/${item.id}`">{{ item.name }}</router-link>
-        <template v-for="sub in item.children" :key="sub.id">
-          <router-link :to="`/category/sub/${sub.id}`">{{ sub.name }}</router-link>
+        <router-link v-for="sub in item.children" :key="sub.id" :to="`/category/sub/${sub.id}`">{{ sub.name }}
+        </router-link>
+        <!-- 用组件完成左侧分类骨架效果 -->
+        <template v-if="!item.children">
+          <XtxSkeleton width="60px" height="18px" style="margin-right:5px" bg="rgba(255,255,255,0.2)" />
+          <XtxSkeleton width="50px" height="18px" bg="rgba(255,255,255,0.2)" />
         </template>
       </li>
     </ul>
@@ -48,6 +52,7 @@
 import { categoryStore } from "../../../store/modules/category"
 import { reactive, computed, ref } from 'vue'
 import { findBrand } from "../../../api/home"
+import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
 const cStore = categoryStore();
 
 // 1. 获取vuex的一级分类，并且只需要两个二级分类
