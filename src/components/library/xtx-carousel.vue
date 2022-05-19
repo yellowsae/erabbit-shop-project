@@ -1,5 +1,5 @@
 <template>
-  <div class="xtx-carousel">
+  <div class="xtx-carousel " @mouseenter="stop()" @mouseleave="start()">
     <ul class="carousel-body">
       <li class="carousel-item " v-for="(item, index) in sliders" :key="index" :class="{ fade: activeIndex === index }">
         <router-link :to="item.hrefUrl">
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, } from "vue"
+import { ref, watch, onUnmounted } from "vue"
 
 const props = defineProps({
   sliders: {
@@ -74,8 +74,28 @@ watch(() => props.sliders, (newVal) => {
   if (newVal.length > 1 && props.autoPlay) {
     autoPlayFn()
   }
-}, {immediate: true})
+}, { immediate: true })
 
+
+
+// 如果有自动播放，鼠标进入离开，暂停，开启
+const stop = () => {
+  if (timer) {
+    clearInterval(timer)
+  }
+}
+
+const start = () => {
+  if (props.sliders.length && props.autoPlay) {
+    autoPlayFn()
+  }
+}
+
+
+// onUnmounted 当组件被销毁了时， 清理定时器
+onUnmounted(() => {
+  clearInterval(timer)
+})
 </script>
 
 <style lang="less" scoped>
