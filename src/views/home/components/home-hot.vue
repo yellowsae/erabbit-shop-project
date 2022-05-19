@@ -1,23 +1,24 @@
 <template>
   <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-    <template #right>
-      <XtxMore path="/" />
-    </template>
-    <ul ref="pannel" class="goods-list">
-      <li v-for="item in hotList" :key="item.id">
-        <router-link to="/">
-          <img :src="item.picture" alt="">
-          <p class="name">{{ item.title }}</p>
-          <p class="desc">{{ item.alt }}</p>
-        </router-link>
-      </li>
-    </ul>
+    <transition name="fade">
+      <ul ref="pannel" class="goods-list" v-if="hotList.length">
+        <li v-for="item in hotList" :key="item.id">
+          <router-link to="/">
+            <img :src="item.picture" alt="">
+            <p class="name">{{ item.title }}</p>
+            <p class="desc">{{ item.alt }}</p>
+          </router-link>
+        </li>
+      </ul>
+      <HomeSkeleton v-else />
+    </transition>
+
   </HomePanel>
 </template>
 
 <script lang="ts" setup>
 import HomePanel from './home-panel.vue'
-import XtxMore from '@/components/library/xtx-more.vue'
+import HomeSkeleton from './home-skeleton.vue'
 import { findHot } from "@/api/home"
 import { ref } from "vue"
 
@@ -60,6 +61,21 @@ findHot().then(res => {
     .desc {
       color: #999;
       font-size: 18px;
+    }
+  }
+}
+
+.fade {
+  &-leave {
+    &-active {
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.5s 0.2s;
+      z-index: 1;
+    }
+
+    &-to {
+      opacity: 0;
     }
   }
 }

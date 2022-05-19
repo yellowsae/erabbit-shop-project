@@ -7,7 +7,7 @@
       </template>
       <transition name="fade">
         <!-- 面板内容 -->
-        <ul class="goods-list" v-if="list.length">
+        <ul class="goods-list" v-if="list">
           <li v-for="item in list" :key="item.id">
             <router-link to="/">
               <img :src="item.picture" alt="">
@@ -16,7 +16,7 @@
             </router-link>
           </li>
         </ul>
-        <XtxSkeleton v-else />
+        <HomeSkeleton v-else />
       </transition>
     </HomePanel>
   </div>
@@ -25,10 +25,10 @@
 <script lang="ts" setup>
 import HomePanel from './home-panel.vue'
 import XtxMore from '@/components/library/xtx-more.vue'
-import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
+import HomeSkeleton from './home-skeleton.vue'
 import { findNew } from "@/api/home"
 import { ref } from 'vue'
-/**
+/** 
  * 大致步骤：
     进行组件基础布局
     封装API调用接口
@@ -49,8 +49,6 @@ const list = ref<goodsList[]>([])
 findNew().then(res => {
   list.value = res.result
 })
-
-console.log(list)
 </script>
 
 <style lang="less" scoped>
