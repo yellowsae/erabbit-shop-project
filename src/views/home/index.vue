@@ -9,6 +9,9 @@
         <HomeBanner />
       </div>
     </div>
+
+    <!-- 新鲜好物 -->
+    <HomeNew />
   </div>
 </template>
 
@@ -16,6 +19,9 @@
 import HomeCategory from './components/home-category.vue';
 // 轮播图
 import HomeBanner from './components/home-banner.vue';
+
+// 新鲜好物主题内容
+import HomeNew from './components/home-new.vue';
 </script>
 
 <style lang="less" scoped>

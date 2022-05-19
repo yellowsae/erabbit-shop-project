@@ -3,13 +3,15 @@ import XtxSkeleton from './xtx-skeleton.vue'
 // 全局注册轮播图 
 import XtxCarousel from './xtx-carousel.vue'
 
-
+// 引入 显示更多组件
+import XtxMore from './xtx-more.vue'
 // 导出
 export default {
   // install 这种写法以后是提供给 app.use() 安装组件库用的
-  install(app) {
+  install(app: any) {
     // Vue3 全局注册组件
     app.component(XtxSkeleton.name, XtxSkeleton)
     app.component(XtxCarousel.name, XtxCarousel)
+    app.component(XtxMore.name, XtxMore)
   }
 }

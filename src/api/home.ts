@@ -12,8 +12,18 @@ export const findBrand = (limit: number) => {
  * @param {*} distributionSite 广告区域展示位置（投放位置 投放位置，1为首页，2为分类商品页） 默认是1
  * @returns
  */
-
 // 获取轮播图
 export const findBanner = (distributionSite: number = 1) => {
-  return request('/home/banner', 'get', {distributionSite: distributionSite})
+  return request('/home/banner', 'get', { distributionSite: distributionSite })
+}
+
+
+/**
+ * 首页-新鲜好物
+ * @param {*} limit 默认值为 4，指定响应数据中商品的数量
+ * @returns
+ */
+
+export const findNew = (limit: number = 4) => {
+  return request('/home/new', 'get', { limit })
 }
