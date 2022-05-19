@@ -34,11 +34,23 @@ import { ref } from 'vue'
     封装API调用接口
     调用接口渲染组件
  */
-const list = ref([])
+
+interface goodsList <T = string> {
+  desc: T,
+  discount?: T,
+  id: T,
+  name: T,
+  orderNum: number,
+  picture: T,
+  price: T
+
+}
+const list = ref<goodsList[]>([])
 findNew().then(res => {
   list.value = res.result
 })
 
+console.log(list)
 </script>
 
 <style lang="less" scoped>
