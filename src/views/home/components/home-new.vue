@@ -24,8 +24,8 @@
 
 <script lang="ts" setup>
 import HomePanel from './home-panel.vue'
-import XtxMore from '@/components/library/xtx-skeleton.vue'
-import XtxSkeleton from '@/components/library/xtx-more.vue'
+import XtxMore from '@/components/library/xtx-more.vue'
+import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
 import { findNew } from "../../../api/home"
 import { ref } from 'vue'
 /**

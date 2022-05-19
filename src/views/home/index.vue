@@ -12,6 +12,8 @@
 
     <!-- 新鲜好物 -->
     <HomeNew />
+    <!-- 人气推荐 -->
+    <HomeHot />
   </div>
 </template>
 
@@ -22,6 +24,7 @@ import HomeBanner from './components/home-banner.vue';
 
 // 新鲜好物主题内容
 import HomeNew from './components/home-new.vue';
+import HomeHot from './components/home-hot.vue';
 </script>
 
 <style lang="less" scoped>
