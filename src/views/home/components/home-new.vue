@@ -26,7 +26,7 @@
 import HomePanel from './home-panel.vue'
 import XtxMore from '@/components/library/xtx-more.vue'
 import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
-import { findNew } from "../../../api/home"
+import { findNew } from "@/api/home"
 import { ref } from 'vue'
 /**
  * 大致步骤：

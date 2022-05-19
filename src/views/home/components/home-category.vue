@@ -50,9 +50,9 @@
 </template>
 
 <script lang="ts" setup>
-import { categoryStore } from "../../../store/modules/category"
+import { categoryStore } from "@/store/modules/category"
 import { reactive, computed, ref } from 'vue'
-import { findBrand } from "../../../api/home"
+import { findBrand } from "@/api/home"
 import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
 const cStore = categoryStore();
 

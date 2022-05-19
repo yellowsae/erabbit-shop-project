@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import HomePanel from './home-panel.vue'
 import XtxMore from '@/components/library/xtx-more.vue'
-import { findHot } from "../../../api/home"
+import { findHot } from "@/api/home"
 import { ref } from "vue"
 
 interface hotListInter<T = string> {
