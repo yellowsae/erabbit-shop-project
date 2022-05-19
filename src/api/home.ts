@@ -27,3 +27,12 @@ export const findBanner = (distributionSite: number = 1) => {
 export const findNew = (limit: number = 4) => {
   return request('/home/new', 'get', { limit })
 }
+
+
+/**
+ * 首页-人气推荐
+ */
+
+export const findHot = () => {
+  return request('/home/hot', 'get')
+}

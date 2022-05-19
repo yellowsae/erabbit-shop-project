@@ -5,23 +5,27 @@
       <template #right>
         <XtxMore path="/" />
       </template>
-      <!-- 面板内容 -->
-      <ul class="goods-list">
-        <li v-for="item in list" :key="item.id">
-          <router-link to="/">
-            <img :src="item.picture" alt="">
-            <p class="name ellipsis">{{ item.name }}</p>
-            <p class="price">&yen;{{ item.price }}</p>
-          </router-link>
-        </li>
-      </ul>
+      <transition name="fade">
+        <!-- 面板内容 -->
+        <ul class="goods-list" v-if="list.length">
+          <li v-for="item in list" :key="item.id">
+            <router-link to="/">
+              <img :src="item.picture" alt="">
+              <p class="name ellipsis">{{ item.name }}</p>
+              <p class="price">&yen;{{ item.price }}</p>
+            </router-link>
+          </li>
+        </ul>
+        <XtxSkeleton v-else />
+      </transition>
     </HomePanel>
   </div>
 </template>
 
 <script lang="ts" setup>
 import HomePanel from './home-panel.vue'
-import XtxMore from '@/components/library/xtx-more.vue'
+import XtxMore from '@/components/library/xtx-skeleton.vue'
+import XtxSkeleton from '@/components/library/xtx-more.vue'
 import { findNew } from "../../../api/home"
 import { ref } from 'vue'
 /**
@@ -64,6 +68,21 @@ findNew().then(res => {
 
     .price {
       color: @priceColor;
+    }
+  }
+}
+
+.fade {
+  &-leave {
+    &-active {
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.5s 0.2s;
+      z-index: 1;
+    }
+
+    &-to {
+      opacity: 0;
     }
   }
 }
