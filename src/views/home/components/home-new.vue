@@ -28,8 +28,12 @@ import XtxMore from '@/components/library/xtx-more.vue'
 import HomeSkeleton from './home-skeleton.vue'
 import { findNew } from "@/api/home"
 import { ref } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
-import { useLazyData } from '@/hooks'
+// import { useIntersectionObserver } from '@vueuse/core'
+// import { useLazyData } from '@/hooks'
+
+
+// 引入数据类型
+import userType from './type'
 /** 
  * 大致步骤：
     进行组件基础布局
@@ -37,26 +41,17 @@ import { useLazyData } from '@/hooks'
     调用接口渲染组件
  */
 
-interface goodsList<T = string> {
-  desc: T,
-  discount?: T,
-  id: T,
-  name: T,
-  orderNum: number,
-  picture: T,
-  price: T
-
-}
-
 // const { list, target} = useLazyData(findNew)
-
 // console.log(list)
 // 将这个懒加载方法封装为 hooks
 const target = ref(null)
-const list = ref<goodsList[]>([])
+const list = ref<userType[]>([])
 findNew().then(res => {
   list.value = res.result
 })
+
+
+// 组件懒加载 —— 实现不了
 // const { stop } = useIntersectionObserver(
 //   target,
 //   ([{ isIntersecting }]) => {

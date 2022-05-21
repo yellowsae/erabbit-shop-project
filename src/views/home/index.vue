@@ -14,6 +14,8 @@
     <HomeNew />
     <!-- 人气推荐 -->
     <HomeHot />
+    <!-- 热门品牌 -->
+    <HomeBrand />
   </div>
 </template>
 
@@ -21,6 +23,7 @@
 import HomeCategory from './components/home-category.vue';
 // 轮播图
 import HomeBanner from './components/home-banner.vue';
+import HomeBrand from './components/home-brand.vue';
 
 // 新鲜好物主题内容
 import HomeNew from './components/home-new.vue';
