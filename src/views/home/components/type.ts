@@ -10,5 +10,9 @@ export default interface goodsList<T = string> {
   logo?: T,
   nameEn?: T,
   place?: T,
-  type?: T
+  type?: T,
+  children?: Array<goodsList>,
+  goods?: Array<goodsList>,
+  saleInfo?: T,
+  layer?: number,
 }

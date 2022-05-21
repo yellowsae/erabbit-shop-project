@@ -41,7 +41,6 @@ findBrand().then(({ result }) => {
   list.value = result
 })
 
-console.log(list)
 </script>
 
 <style lang="less" scoped>

@@ -16,6 +16,8 @@
     <HomeHot />
     <!-- 热门品牌 -->
     <HomeBrand />
+    <!-- 商品区域 -->
+    <HomeProduct />
   </div>
 </template>
 
@@ -28,6 +30,7 @@ import HomeBrand from './components/home-brand.vue';
 // 新鲜好物主题内容
 import HomeNew from './components/home-new.vue';
 import HomeHot from './components/home-hot.vue';
+import HomeProduct from './components/home-product.vue';
 </script>
 
 <style lang="less" scoped>

@@ -36,3 +36,13 @@ export const findNew = (limit: number = 4) => {
 export const findHot = () => {
   return request('/home/hot', 'get')
 }
+
+
+/**
+ * 首页-产品区块
+ * @param {*} 无请求参数
+ * @returns
+ */
+export const findGoods = () => {
+  return request('/home/goods', 'get')
+}
