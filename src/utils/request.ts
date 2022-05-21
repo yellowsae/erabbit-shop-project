@@ -75,7 +75,7 @@ instance.interceptors.response.use(
 
 
 // 请求工具函数
-export default (url: string, method: string, submitData?: any) => {
+export default (url: string, method: string = 'get', submitData?: {}) => {
   // 负责发请求：请求地址，请求方式，提交的数据
   return instance({
     url,

@@ -34,7 +34,7 @@ export const findNew = (limit: number = 4) => {
  */
 
 export const findHot = () => {
-  return request('/home/hot', 'get')
+  return request('/home/hot')
 }
 
 
@@ -44,5 +44,15 @@ export const findHot = () => {
  * @returns
  */
 export const findGoods = () => {
-  return request('/home/goods', 'get')
+  return request('/home/goods')
+}
+
+
+
+/**
+ * 首页-最新专题
+ */
+
+export const findSpecial = () => {
+  return request('/home/special')
 }

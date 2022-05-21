@@ -18,6 +18,8 @@
     <HomeBrand />
     <!-- 商品区域 -->
     <HomeProduct />
+    <!-- 最近专题 -->
+    <HomeSpecial />
   </div>
 </template>
 
@@ -31,6 +33,7 @@ import HomeBrand from './components/home-brand.vue';
 import HomeNew from './components/home-new.vue';
 import HomeHot from './components/home-hot.vue';
 import HomeProduct from './components/home-product.vue';
+import HomeSpecial from './components/home-special.vue';
 </script>
 
 <style lang="less" scoped>
