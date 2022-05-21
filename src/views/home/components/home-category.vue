@@ -54,6 +54,7 @@ import { categoryStore } from "@/store/modules/category"
 import { reactive, computed, ref } from 'vue'
 import { findBrand } from "@/api/home"
 import XtxSkeleton from '@/components/library/xtx-skeleton.vue'
+import userType from './type'
 const cStore = categoryStore();
 
 // 1. 获取vuex的一级分类，并且只需要两个二级分类
@@ -75,7 +76,7 @@ findBrand(6).then(data => {
 })
 
 // 用于在模板中循环的数组 
-const menuList = computed(() => {
+const menuList = computed<userType[]>(() => {
   // 获取一级分类， 并循环
   const arr = cStore.list.map(item => {
     // 返回一个对象， 模拟 Pinia 中定义品牌数据
@@ -94,9 +95,9 @@ const menuList = computed(() => {
 
 
 // 获取当前分类逻辑   @mouseenter="categoryId=item.id"   @mouseenter 事件是 当鼠标滑过时触发事件
-const categoryId = ref<string>('')
+const categoryId = ref<any>('')
 // 循环判断是否相等, 相等时返回 该项 的数据
-const currCategory = computed(() => {
+const currCategory = computed<userType[]>(() => {
   return cStore.list.find(item => item.id === categoryId.value)
 })
 
