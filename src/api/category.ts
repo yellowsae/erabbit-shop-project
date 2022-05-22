@@ -24,3 +24,14 @@ export const findAllCategory = () => {
  export const findTopCategory = (id:any) => {
   return request('/category', 'get', { id: id })
 }
+
+
+
+/**
+ *二级类目-筛选条件-PC
+ * @param { Number } id 二级分类ID
+ * @returns Promise
+ */
+ export const findSubFilter = (id:any) => {
+  return request('/category/sub/filter', 'get', { id: id })
+}

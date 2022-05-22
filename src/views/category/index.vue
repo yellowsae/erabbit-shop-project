@@ -16,7 +16,7 @@
         <h3>全部分类</h3>
         <ul>
           <li v-for="item in cate.children" :key="item">
-            <router-link :to="`category/sub/${item.id}`">
+            <router-link :to="`/category/sub/${item.id}`">
               <img :src="item.picture" alt="">
               <p>{{ item.name }}</p>
             </router-link>
@@ -82,7 +82,7 @@ const getCate = () => {
 }
 watch(() => route.params.id, (newVal) => {
   // 如果不是一级分类页，就不发送一级分类请求
-  // if (`/category/${id}` !== route.path) return
+  if (route.path !== `/category/${newVal}` ) return
   newVal && getCate()
 }, { immediate: true })
 

@@ -15,4 +15,10 @@ export default interface goodsList<T = string> {
   goods?: Array<goodsList>,
   saleInfo?: T,
   layer?: number,
+  brands?: Array<goodsList>,
+  categories?: Array<goodsList>,
+  parenId?: T,
+  parenName?: T,
+  saleProperties?: Array<goodsList>,
+  properties?: Array<goodsList>,
 }
