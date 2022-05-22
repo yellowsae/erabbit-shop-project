@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       // 配置路由和组件实现跳转,  根据路由在组件中跳转， 传递过来的参数
       {
-        path: '/category/:id', 
+        path: '/category/:id',
         component: () => import('@/views/category/index.vue')
       },
       {
@@ -34,7 +34,10 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   // history: createWebHashHistory(),
-  routes
+  routes,
+  scrollBehavior() {
+    return { left: 0, top: 0 }
+  }
 })
 
 
