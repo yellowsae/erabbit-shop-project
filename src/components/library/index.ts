@@ -3,6 +3,10 @@ import XtxSkeleton from './xtx-skeleton.vue'
 // 全局注册轮播图 
 import XtxCarousel from './xtx-carousel.vue'
 import defaultImg from '@/assets/images/200.png'
+
+// 注册面包屑组件
+import XtxBread from "./xtx-bread.vue"
+import XtxBreadItem from "./xtx-bread-item.vue"
 import { useIntersectionObserver } from '@vueuse/core'
 
 
@@ -46,6 +50,8 @@ export default {
     app.component(XtxSkeleton.name, XtxSkeleton)
     app.component(XtxCarousel.name, XtxCarousel)
     app.component(XtxMore.name, XtxMore)
+    app.component(XtxBread.name, XtxBread)
+    app.component(XtxBreadItem.name, XtxBreadItem)
     defineDirective(app)
   }
 }

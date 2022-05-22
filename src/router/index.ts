@@ -22,9 +22,13 @@ const routes: Array<RouteRecordRaw> = [
         path: '/category/sub/:id',
         component: () => import('@/views/category/sub.vue')
       }
-    ]
+    ],
   },
 
+  {
+    path: '/test',
+    component: () => import('@/views/test/index.vue')
+  }
 ]
 
 const router = createRouter({

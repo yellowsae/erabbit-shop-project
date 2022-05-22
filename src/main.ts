@@ -7,10 +7,10 @@ import "normalize.css"
 import '@/assets/styles/common.less'
 
 // 导入自己封装的组件库
-import XtxUI  from './components/library'
+// import XtxUI  from '@/components/library/index'
 
 
 const app = createApp(App)
 
-app.use(router).use(pinia).use(XtxUI)
+app.use(router).use(pinia)
 app.mount('#app')
