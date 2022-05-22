@@ -13,5 +13,14 @@ import request from "../utils/request";
  * 获取首页头部分类数据
  */
 export const findAllCategory = () => {
-  return request('/home/category/head', 'get')
+  return request('/home/category/head')
+}
+
+/**
+ * 一级类目-PC
+ * @param {*} id 一级类目ID
+ * @returns
+ */
+ export const findTopCategory = (id:any) => {
+  return request('/category', 'get', { id: id })
 }

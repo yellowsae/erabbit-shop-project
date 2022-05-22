@@ -26,7 +26,6 @@
 
 <script lang="ts" setup>
 import { ref, watch, onUnmounted } from "vue"
-
 const props = defineProps({
   sliders: {
     type: Array,
