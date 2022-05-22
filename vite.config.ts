@@ -12,7 +12,7 @@ export default defineConfig({
   },
   plugins: [vue()],
   // 自动开启浏览器
-  server: {
-    open: true,
-  }
+  // server: {
+  //   open: true,
+  // }
 })
