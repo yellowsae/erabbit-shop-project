@@ -7,7 +7,7 @@
         class="iconfont icon-angle-right next"></a>
     </template>
     <div class="box" ref="box">
-      <transition class="fade">
+      <transition name="fade" mode="out-in">
         <ul class="list" v-if="list.length" :style="`transform: translateX(${moveX});`">
           <li v-for="item in list" :key="item.id">
             <router-link to="/">

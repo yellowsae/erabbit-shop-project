@@ -1,6 +1,6 @@
 <template>
   <HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <ul ref="pannel" class="goods-list" v-if="hotList.length">
         <li v-for="item in hotList" :key="item.id">
           <router-link to="/">
