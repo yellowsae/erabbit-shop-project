@@ -4,7 +4,7 @@
       <!-- 面包屑导航 -->
       <SubBread />
       <!-- 筛选分区 -->
-      <SubFilter />
+      <SubFilter :newSubFilter="subFilter"/>
       <!-- 商品分区 -->
     </div>
   </div>
@@ -21,7 +21,7 @@ import { ref, watch, provide } from "vue"
 
 
 const route = useRoute()  // 初始化， 用过 useRouter 获取 path 的ID
-const subFilter = ref(null)
+const subFilter = ref([])
 
 // 🔔 watch 监听 id 发生变化，需要重新发送请求
 watch(() => route.params.id, async (id) => {
@@ -37,7 +37,6 @@ watch(() => route.params.id, async (id) => {
 // 🎉获取数据：const value = inject('key')
 
 provide('subFilter', subFilter)
-
 
 </script>
 

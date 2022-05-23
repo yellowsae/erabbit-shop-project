@@ -12,21 +12,36 @@
 </template>
 
 <script lang="ts" setup>
-import { inject, computed, reactive } from 'vue'
+import { inject, computed, reactive, ref } from 'vue'
 import userType from '@/types/type'
+
+const props = defineProps({
+  newSubFilter: {
+    type: Array,
+    default: () => []
+  }
+})
+
+
 // 获取数据
 const subFilter = inject('subFilter'); // ref 类型数据
+
 
 // const testList = subFilter?.value.saleProperties
 // 🔔 筛选区的列表数据其实包含两部分：品牌数据 + 销售规格
 const list = computed(() => {
+  const filterList = ref([])
+  filterList.value = props.newSubFilter.saleProperties
+  console.log(props.newSubFilter.saleProperties)
   return [
-    // 品牌数据 - 参考销售规格的格式组装数据
-    { id: 'brands', name: '品牌', properties: subFilter.value.brands },
-    // 销售规格 - 已这个格式为主要
-    ...subFilter?.value.saleProperties
+    // // 品牌数据 - 参考销售规格的格式组装数据
+    { id: 'brands', name: '品牌', properties: props.newSubFilter.brands },
+    ...props.newSubFilter.saleProperties
   ]
 })
+
+
+// props 数据展示
 
 
 </script>
