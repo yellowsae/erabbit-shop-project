@@ -1,13 +1,13 @@
 <template>
   <!-- 配置商品详情 -->
-  <div class="xtx-goods-page">
+  <div class="xtx-goods-page" v-if="goods">
     <div class="container">
       <!-- 面包屑导航 -->
       <XtxBread>
         <XtxBreadItem to="/">首页</XtxBreadItem>
-        <XtxBreadItem to="/">手机</XtxBreadItem>
-        <XtxBreadItem to="/">华为</XtxBreadItem>
-        <XtxBreadItem to="/">p30</XtxBreadItem>
+        <XtxBreadItem :to="'/category/' + goods.categories[1].id">{{goods.categories[1].name}}</XtxBreadItem>
+        <XtxBreadItem :to="'/category/sub' + goods.categories[0].id">{{goods.categories[0].name}}</XtxBreadItem>
+        <XtxBreadItem to="/">{{ goods.name }}</XtxBreadItem>
       </XtxBread>
 
       <!-- 商品信息 -->
@@ -44,6 +44,25 @@
 import XtxBread from "@/components/library/xtx-bread.vue"
 import XtxBreadItem from "@/components/library/xtx-bread-item.vue"
 import GoodsRelevant from "./components/goods-relevant.vue"
+
+// 引入的函数
+import { findGoods } from "@/api/goods"
+import { useRoute } from "vue-router"
+import { ref, watch, nextTick, reactive } from "vue"
+import userType from "@/types/type"
+
+const goods = ref<userType[]>([])
+const route = useRoute()
+
+const testInfo = ref('')
+// 注意单页面应用路由变化，需要重新获取商品详情
+watch(() => route.params.id, async (id) => {
+  // 如果不是商品详情页不处理
+  if (route.path !== `/product/${id}`) return
+  const { result } = await findGoods(id)
+  goods.value = result
+}, { immediate: true })
+
 </script>
 
 <style lang="less" scoped>
