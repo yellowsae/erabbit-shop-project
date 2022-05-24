@@ -15,10 +15,12 @@
         <!-- 商品信息左边 -->
         <div class="goods-info-left">
           <GoodsImage :images="goods.mainPictures" />
+          <GoodsSales />
+
         </div>
         <!-- 商品信息右边 -->
         <div class="goods-info-right">
-
+          <GoodsName :goods="goods" />
         </div>
       </div>
       <!-- 商品推荐 -->
@@ -45,6 +47,10 @@ import XtxBread from "@/components/library/xtx-bread.vue"
 import XtxBreadItem from "@/components/library/xtx-bread-item.vue"
 import GoodsRelevant from "./components/goods-relevant.vue"
 import GoodsImage from "./components/goods.image.vue"
+import GoodsSales from "./components/goods-sales.vue"
+import GoodsName from "./components/goods-name.vue"
+
+
 // 引入的函数
 import { findGoods } from "@/api/goods"
 import { useRoute } from "vue-router"

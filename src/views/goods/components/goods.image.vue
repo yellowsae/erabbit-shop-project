@@ -1,6 +1,6 @@
 <template>
   <div class="goods-image">
-    <div class="large" v-show="!isOutside" >
+    <div class="large" v-show="!isOutside">
       <img :src="images[activeIndex]" alt="" :style="largePos">
     </div>
     <div class="middle" ref="target">
@@ -67,12 +67,13 @@ watch([elementX, elementY], () => {
 
 .goods-image {
   width: 480px;
-  height: 480px;
+  height: 400px;
   position: relative;
   display: flex;
 
   // 大图预览
   .large {
+    z-index: 500;
     position: absolute;
     top: 0;
     left: 412px;
@@ -83,7 +84,6 @@ watch([elementX, elementY], () => {
     background-size: 800px 800px;
     background-color: #f8f8f8;
     overflow: hidden;
-    z-index: 401;
 
     img {
       max-width: 800px;
@@ -100,9 +100,9 @@ watch([elementX, elementY], () => {
     width: 400px;
     height: 400px;
     position: relative;
-    cursor: pointer;
+    cursor: move;
 
-    .large {
+    .layer {
       width: 200px;
       height: 200px;
       background: rgba(0, 0, 0, 0.2);
