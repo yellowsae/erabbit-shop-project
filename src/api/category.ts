@@ -21,7 +21,7 @@ export const findAllCategory = () => {
  * @param {*} id 一级类目ID
  * @returns
  */
- export const findTopCategory = (id:any) => {
+export const findTopCategory = (id: any) => {
   return request('/category', 'get', { id: id })
 }
 
@@ -32,6 +32,25 @@ export const findAllCategory = () => {
  * @param { Number } id 二级分类ID
  * @returns Promise
  */
- export const findSubFilter = (id:any) => {
+export const findSubFilter = (id: any) => {
   return request('/category/sub/filter', 'get', { id: id })
+}
+
+
+/**
+ * 商品列表--分页查询
+ * @param {  }
+ * @returns Promise
+ */
+export const findCategoryGoods = (data: any) => {
+  return request('/category/goods', 'POST', data)
+}
+
+
+/**
+ * 获取分类下的商品（带筛选条件）
+ * @param {Object} params - 可参考接口文档
+ */
+export const findSubCategoryGoods = (params: any) => {
+  return request('/category/goods/temporary', 'post', params)
 }

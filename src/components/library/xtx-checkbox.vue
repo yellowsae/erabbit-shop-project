@@ -19,7 +19,7 @@ const changeChecked = () => {
 
 <template>
   <div class="xtx-checkbox" @click="changeChecked">
-    <i class="iconfont icon-checked" :class="modelValue ? 'icon-checked' : 'icon-unchecked'"></i>
+    <i class="iconfont " :class="modelValue ? 'icon-checked' : 'icon-unchecked'"></i>
     <span v-if="$slots.default" > <slot /> </span>
   </div>
 </template>
