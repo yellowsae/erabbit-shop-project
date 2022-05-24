@@ -3,18 +3,18 @@
   <div class="xtx-goods-page" v-if="goods">
     <div class="container">
       <!-- 面包屑导航 -->
-      <XtxBread>
+      <!-- <XtxBread>
         <XtxBreadItem to="/">首页</XtxBreadItem>
         <XtxBreadItem :to="'/category/' + goods.categories[1].id">{{goods.categories[1].name}}</XtxBreadItem>
         <XtxBreadItem :to="'/category/sub' + goods.categories[0].id">{{goods.categories[0].name}}</XtxBreadItem>
         <XtxBreadItem to="/">{{ goods.name }}</XtxBreadItem>
-      </XtxBread>
+      </XtxBread> -->
 
       <!-- 商品信息 -->
       <div class="goods-info">
         <!-- 商品信息左边 -->
         <div class="goods-info-left">
-
+          <GoodsImage :images="goods.mainPictures" />
         </div>
         <!-- 商品信息右边 -->
         <div class="goods-info-right">
@@ -44,7 +44,7 @@
 import XtxBread from "@/components/library/xtx-bread.vue"
 import XtxBreadItem from "@/components/library/xtx-bread-item.vue"
 import GoodsRelevant from "./components/goods-relevant.vue"
-
+import GoodsImage from "./components/goods.image.vue"
 // 引入的函数
 import { findGoods } from "@/api/goods"
 import { useRoute } from "vue-router"
