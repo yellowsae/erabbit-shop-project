@@ -1,6 +1,6 @@
 <template>
   <!-- 目的： 展示各个子级分类下推荐的商品基础布局 -->
-  <router-link to="/" class="goods-item">
+  <router-link :to="`/product/${goods.id}`" class="goods-item">
     <img :src="goods.picture" alt="">
     <p class="name ellipsis">{{ goods.name }}</p>
     <p class="desc ellipsis">{{ goods.desc }}</p>

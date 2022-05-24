@@ -33,7 +33,7 @@ import { inject } from "vue"
 
 const reqParams = inject('reqParams')
 
-const changeSort = (sortField: any) => {
+const changeSort = (sortField: any = undefined) => {
   // 1.0 先收集排序方式
   reqParams.sortField = sortField
   if (sortField === 'price') {

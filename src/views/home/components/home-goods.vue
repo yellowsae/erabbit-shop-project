@@ -1,13 +1,13 @@
 <template>
   <div class="goods-item">
-    <router-link to="/" class="image">
+    <router-link :to="`/product/${goods.id}`" class="image">
       <img :src="goods.picture" alt="">
     </router-link>
     <p class="name ellipsis-2">{{goods.name}}</p>
     <p class="desc ellipsis">{{goods.tag}}</p>
     <p class="price">&yen;{{goods.price}}</p>
     <div class="extra">
-      <router-link to="/">
+      <router-link :to="`/product/${goods.id}`">
         <span>找相似</span>
         <span>发现现多宝贝 &gt;</span>
       </router-link>

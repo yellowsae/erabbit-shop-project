@@ -5,7 +5,7 @@
     </template>
     <div class="special-list">
       <div class="special-item" v-for="item in list" :key="item.id">
-        <router-link to="/">
+        <router-link :to="`/product/${item.id}`">
           <img :src="item.cover" alt="">
           <div class="meta">
             <p class="title">

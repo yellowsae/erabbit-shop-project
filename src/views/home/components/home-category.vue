@@ -20,7 +20,7 @@
       <ul v-if="currCategory && currCategory.goods">
         <li v-for="item in currCategory.goods" :key="item.id">
         <!-- 这里循环的商品 点击跳转 因该到 付款中，之后做付款组件时再补上 -->
-          <router-link to="/">
+          <router-link :to="`/product/${item.id}`">
             <img :src="item.picture" alt="">
             <div class="info">
               <p class="name ellipsis-2">{{ item.name }}</p>
@@ -33,7 +33,7 @@
       <!-- 品牌的列表 -->
       <ul v-if="categoryId && categoryId === 'brand'">
         <li class="brand" v-for="item in brand.brands" :key="item.id">
-          <router-link to="/">
+          <router-link :to="`/product/${item.id}`">
             <img :src="item.picture" alt="">
             <div class="info">
               <p class="place"><i class="iconfont icon-dingwei"></i>{{ item.place }}</p>
