@@ -5,7 +5,7 @@
         <!-- 面包屑导航 -->
         <SubBread />
         <!-- 筛选分区 -->
-        <!-- <SubFilter :newSubFilter="subFilter"/> -->
+        <SubFilter :newSubFilter="subFilter"/>
         <!-- 结果区域 -->
         <div class="goods-list">
           <!-- 排序 -->
@@ -28,7 +28,7 @@
 
 <script lang="ts" setup>
 import SubBread from "./components/sub-bread.vue"
-// import SubFilter from "./components/sub-filter.vue"
+import SubFilter from "./components/sub-filter.vue"
 import SubSkeleton from "./components/sub-skeleton.vue"
 import SubSort from "./components/sub-sort.vue"
 import GoodsItem from "./components/goods-item.vue"
