@@ -20,7 +20,10 @@
         </div>
         <!-- 商品信息右边 -->
         <div class="goods-info-right">
+          <!-- 名字区组件 -->
           <GoodsName :goods="goods" />
+          <!-- 规格组件 -->
+          <GoodsSku :goods="goods" />
         </div>
       </div>
       <!-- 商品推荐 -->
@@ -49,7 +52,7 @@ import GoodsRelevant from "./components/goods-relevant.vue"
 import GoodsImage from "./components/goods.image.vue"
 import GoodsSales from "./components/goods-sales.vue"
 import GoodsName from "./components/goods-name.vue"
-
+import GoodsSku from "./components/goods-sku.vue"
 
 // 引入的函数
 import { findGoods } from "@/api/goods"
