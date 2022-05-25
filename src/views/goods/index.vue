@@ -39,7 +39,7 @@
           <!-- 商品 + 评价 -->
           <GoodsTabs :goods="goods" />
           <!-- 注意事项 -->
-            <GoodsWarn />
+          <GoodsWarn />
         </div>
         <!-- 24热榜+专题推荐 -->
         <div class="goods-aside">

@@ -28,7 +28,22 @@
 </template>
 
 <script setup lang="ts">
+import { findCommentInfoByGoods } from '@/api/goods'
+import { inject, ref } from 'vue'
+const goods = inject('goods')
+// 头部评价信息
+const commentInfo = ref(null)
 
+findCommentInfoByGoods(goods.value.id).then(({ result }) => {
+  console.log(111111, result)
+  // 处理 tags 数组，方便模板 v-for 遍历
+  result.tags = [
+    { title: '全部评价', tagCount: result.evaluateCount },
+    { title: '有图', tagCount: result.hasPictureCount },
+    ...result.tags
+  ]
+  commentInfo.value = result
+})
 </script>
 
 <style lang="less" scoped>
