@@ -26,6 +26,8 @@
           <GoodsSku :goods="goods" />
 
           <XtxNumbox label="数量" v-model="count" :max="goods.inventory" />
+          <!-- 添加购物车按钮 -->
+          <XtxButton type="primary" style="margin-top:20px;">加入购物车</XtxButton>
         </div>
       </div>
       <!-- 商品推荐 -->
@@ -56,7 +58,7 @@ import GoodsSales from "./components/goods-sales.vue"
 import GoodsName from "./components/goods-name.vue"
 import GoodsSku from "./components/goods-sku.vue"
 import XtxNumbox from "@/components/library/xtx-numbox.vue"
-
+import XtxButton from "@/components/library/xtx-button.vue"
 // 引入的函数
 import { findGoods } from "@/api/goods"
 import { useRoute } from "vue-router"
