@@ -4,10 +4,10 @@
       <a @click="activeCom = 'GoodsDetail'" :class="{ active: activeCom === 'GoodsDetail' }"
         href="javascript:;">商品详情</a>
       <a @click="activeCom = 'GoodsComment'" :class="{ active: activeCom === 'GoodsComment' }"
-        href="javascript:;">商品评价<span>(500+)</span></a>
+        href="javascript:;">商品评价<span> (111) </span></a>
     </nav>
     <!-- 切换内容的地方 -->
-    <component :is="activeCom"></component>
+    <component :is="activeCom" ></component>
   </div>
 </template>
 
@@ -15,6 +15,7 @@
 import { ref } from 'vue'
 import GoodsComment from './goods-comment.vue'
 import GoodsDetail from './goods-detail.vue'
+import { inject } from 'vue'
 export default {
   components: { GoodsDetail, GoodsComment },
   name: 'GoodsTabs',
@@ -22,8 +23,12 @@ export default {
     // 默认展示商品详情组件，GoodsDetail 商品详情，GoodsComment 商品评价
     const activeCom = ref('GoodsDetail')
     return { activeCom }
+    const goods = inject('goods')
+
+    return { goods }
   }
 }
+
 </script>
 
 <style lang="less" scoped>

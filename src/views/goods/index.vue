@@ -37,7 +37,7 @@
       <div class="goods-footer">
         <div class="goods-article">
           <!-- 商品 + 评价 -->
-          <GoodsTabs />
+          <GoodsTabs :goods="goods" />
           <!-- 注意事项 -->
           <div class="goods-warn"></div>
         </div>
@@ -67,7 +67,7 @@ import GoodsHot from "./components/goods-hot.vue"
 // 引入的函数
 import { findGoods } from "@/api/goods"
 import { useRoute } from "vue-router"
-import { ref, watch, nextTick, reactive } from "vue"
+import { ref, watch, nextTick, reactive, provide } from "vue"
 import userType from "@/types/type"
 
 const goods = ref<userType[]>([])
@@ -81,6 +81,7 @@ watch(() => route.params.id, async (id) => {
   const { result } = await findGoods(id)
   goods.value = result
   count.value = 1
+  provide('goods', goods)
 }, { immediate: true })
 
 </script>
