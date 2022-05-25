@@ -29,10 +29,18 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
 
+  // 用于测试
   {
     path: '/test',
     component: () => import('@/views/test/index.vue')
+  },
+
+  // 登录的路由
+  {
+    path: '/login',
+    component: () => import('@/views/login/index.vue')
   }
+
 ]
 
 const router = createRouter({
