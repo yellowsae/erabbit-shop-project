@@ -19,6 +19,12 @@
     <XtxBreadItem to="/category/1010000">一级分类</XtxBreadItem>
     <XtxBreadItem>二级分类</XtxBreadItem>
   </XtxBread>
+
+
+  <hr>
+
+  <XtxCity />
+
 </template>
 <script lang="ts" setup>
 import { storeToRefs } from "pinia"
@@ -29,6 +35,7 @@ import { userStore } from "../../store/modules/user"
 // 测试使用  面包屑组件 -  组件组测出现问题
 import XtxBread from "@/components/library/xtx-bread.vue"
 import XtxBreadItem from "@/components/library/xtx-bread-item.vue"
+import XtxCity from "@/components/library/xtx-city.vue"
 
 const pStore = piniaStore();
 const uStore = userStore()
