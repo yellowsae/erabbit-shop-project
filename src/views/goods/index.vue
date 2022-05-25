@@ -3,12 +3,12 @@
   <div class="xtx-goods-page" v-if="goods">
     <div class="container">
       <!-- 面包屑导航 -->
-      <!-- <XtxBread>
+      <XtxBread>
         <XtxBreadItem to="/">首页</XtxBreadItem>
         <XtxBreadItem :to="'/category/' + goods.categories[1].id">{{goods.categories[1].name}}</XtxBreadItem>
         <XtxBreadItem :to="'/category/sub' + goods.categories[0].id">{{goods.categories[0].name}}</XtxBreadItem>
         <XtxBreadItem to="/">{{ goods.name }}</XtxBreadItem>
-      </XtxBread> -->
+      </XtxBread>
 
       <!-- 商品信息 -->
       <div class="goods-info">
@@ -31,7 +31,7 @@
         </div>
       </div>
       <!-- 商品推荐 -->
-      <GoodsRelevant />
+      <GoodsRelevant  :goodsId="goods.id" />
 
       <!-- 商品详情 -->
       <div class="goods-footer">
