@@ -24,6 +24,8 @@
           <GoodsName :goods="goods" />
           <!-- 规格组件 -->
           <GoodsSku :goods="goods" />
+
+          <XtxNumbox label="数量" v-model="count" :max="goods.inventory" />
         </div>
       </div>
       <!-- 商品推荐 -->
@@ -53,6 +55,7 @@ import GoodsImage from "./components/goods.image.vue"
 import GoodsSales from "./components/goods-sales.vue"
 import GoodsName from "./components/goods-name.vue"
 import GoodsSku from "./components/goods-sku.vue"
+import XtxNumbox from "@/components/library/xtx-numbox.vue"
 
 // 引入的函数
 import { findGoods } from "@/api/goods"
@@ -62,7 +65,7 @@ import userType from "@/types/type"
 
 const goods = ref<userType[]>([])
 const route = useRoute()
-
+const count = ref(1)
 const testInfo = ref('')
 // 注意单页面应用路由变化，需要重新获取商品详情
 watch(() => route.params.id, async (id) => {
@@ -70,6 +73,7 @@ watch(() => route.params.id, async (id) => {
   if (route.path !== `/product/${id}`) return
   const { result } = await findGoods(id)
   goods.value = result
+  count.value = 1
 }, { immediate: true })
 
 </script>
