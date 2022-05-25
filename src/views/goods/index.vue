@@ -5,8 +5,8 @@
       <!-- 面包屑导航 -->
       <XtxBread>
         <XtxBreadItem to="/">首页</XtxBreadItem>
-        <XtxBreadItem :to="'/category/' + goods.categories[1].id">{{goods.categories[1].name}}</XtxBreadItem>
-        <XtxBreadItem :to="'/category/sub' + goods.categories[0].id">{{goods.categories[0].name}}</XtxBreadItem>
+        <XtxBreadItem :to="'/category/' + goods.categories[1].id">{{ goods.categories[1].name }}</XtxBreadItem>
+        <XtxBreadItem :to="'/category/sub' + goods.categories[0].id">{{ goods.categories[0].name }}</XtxBreadItem>
         <XtxBreadItem to="/">{{ goods.name }}</XtxBreadItem>
       </XtxBread>
 
@@ -31,19 +31,21 @@
         </div>
       </div>
       <!-- 商品推荐 -->
-      <GoodsRelevant  :goodsId="goods.id" />
+      <GoodsRelevant :goodsId="goods.id" />
 
       <!-- 商品详情 -->
       <div class="goods-footer">
         <div class="goods-article">
           <!-- 商品 + 评价 -->
-          <div class="goods-tabs">
-          </div>
+          <GoodsTabs />
           <!-- 注意事项 -->
           <div class="goods-warn"></div>
         </div>
         <!-- 24热榜+专题推荐 -->
-        <div class="goods-aside"></div>
+        <div class="goods-aside">
+          <GoodsHot :goodsId="goods.id" :type="1" />
+          <GoodsHot :goodsId="goods.id" :type="1" />
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +61,9 @@ import GoodsName from "./components/goods-name.vue"
 import GoodsSku from "./components/goods-sku.vue"
 import XtxNumbox from "@/components/library/xtx-numbox.vue"
 import XtxButton from "@/components/library/xtx-button.vue"
+import GoodsTabs from "./components/goods-tabs.vue"
+import GoodsHot from "./components/goods-hot.vue"
+
 // 引入的函数
 import { findGoods } from "@/api/goods"
 import { useRoute } from "vue-router"
@@ -106,10 +111,10 @@ watch(() => route.params.id, async (id) => {
     width: 940px;
     margin-right: 20px;
 
-    .goods-tabs {
-      min-width: 600px;
-      background-color: #fff;
-    }
+    // .goods-tabs {
+    //   min-width: 600px;
+    //   background-color: #fff;
+    // }
 
     .goods-warn {
       min-width: 600px;
