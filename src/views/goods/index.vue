@@ -39,7 +39,7 @@
           <!-- 商品 + 评价 -->
           <GoodsTabs :goods="goods" />
           <!-- 注意事项 -->
-          <div class="goods-warn"></div>
+            <GoodsWarn />
         </div>
         <!-- 24热榜+专题推荐 -->
         <div class="goods-aside">
@@ -63,6 +63,8 @@ import XtxNumbox from "@/components/library/xtx-numbox.vue"
 import XtxButton from "@/components/library/xtx-button.vue"
 import GoodsTabs from "./components/goods-tabs.vue"
 import GoodsHot from "./components/goods-hot.vue"
+import GoodsWarn from "./components/goods-warn.vue"
+
 
 // 引入的函数
 import { findGoods } from "@/api/goods"
