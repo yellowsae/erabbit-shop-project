@@ -12,7 +12,9 @@
     </dl>
     <dl>
       <dt>配送</dt>
-      <dd>至 </dd>
+      <dd>至
+        <XtxCity @change="changeCity" :fullLocation="fullLocation" />
+      </dd>
     </dl>
     <dl>
       <dt>服务</dt>
@@ -27,12 +29,25 @@
 </template>
 
 <script lang="ts" setup>
-defineProps({
+import { ref } from "vue"
+import XtxCity from "@/components/library/xtx-city.vue"
+const props = defineProps({
   goods: {
     type: Array,
     default: () => []
   }
 })
+
+// 未登录情况，显示某个地址
+const fullLocation = ref('广东省 广州市 天河区')
+// 已经登录情况，显示用户的默认地址
+if (props.goods.userAddresses) {
+  // fullLocation.value = xxxx
+}
+// 选择城市
+const changeCity = (result: any) => {
+  fullLocation.value = result.fullLocation
+}
 </script>
 
 <style lang="less" scoped>
