@@ -108,7 +108,7 @@ const updateDisabledStatus = (specs, pathMap) => {
 }
 </script> -->
 
-<script lang="ts" >
+<script>
 import bwPowerSet from '@/vender/power-set'
 // 自定义规格分隔符
 const spliter = '★'
