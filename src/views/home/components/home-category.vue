@@ -71,14 +71,14 @@ const brand = reactive({
 
 
 // 处理品牌数据
-findBrand(6).then(data => {
+findBrand(6).then((data:any) => {
   brand.brands = data.result
 })
 
 // 用于在模板中循环的数组 
-const menuList = computed<userType[]>(() => {
+const menuList = computed<any[]>(() => {
   // 获取一级分类， 并循环
-  const arr = cStore.list.map(item => {
+  const arr = cStore.list.map((item: any) => {
     // 返回一个对象， 模拟 Pinia 中定义品牌数据
     return {
       id: item.id,
@@ -97,8 +97,8 @@ const menuList = computed<userType[]>(() => {
 // 获取当前分类逻辑   @mouseenter="categoryId=item.id"   @mouseenter 事件是 当鼠标滑过时触发事件
 const categoryId = ref<any>('')
 // 循环判断是否相等, 相等时返回 该项 的数据
-const currCategory = computed<userType[]>(() => {
-  return cStore.list.find(item => item.id === categoryId.value)
+const currCategory = computed<any>(() => {
+  return cStore.list.find((item: any) => item.id === categoryId.value)
 })
 
 </script>

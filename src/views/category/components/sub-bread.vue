@@ -13,7 +13,7 @@ import XtxBread from "@/components/library/xtx-bread.vue"
 import XtxBreadItem from "@/components/library/xtx-bread-item.vue"
 import { inject } from "vue"
 
-const subFilter = inject("subFilter")
+const subFilter: any = inject("subFilter")
 </script>
 
 <style lang="less" scoped>

@@ -15,7 +15,7 @@
 import { inject, computed, reactive, ref } from 'vue'
 import userType from '@/types/type'
 
-const props = defineProps({
+const props: any = defineProps({
   newSubFilter: {
     type: Array,
     default: () => []

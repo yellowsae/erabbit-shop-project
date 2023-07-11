@@ -20,12 +20,12 @@ import { reactive, ref, watch, onMounted } from 'vue'
 import { useMouseInElement } from '@vueuse/core'
 const props = defineProps({
   images: {
-    type: Array,
+    type: Object,
     default: () => []
   }
 })
 
-const activeIndex = ref(0)
+const activeIndex: any = ref(0)
 
 // 需要获取鼠标坐标的目标盒子
 const target = ref(null)

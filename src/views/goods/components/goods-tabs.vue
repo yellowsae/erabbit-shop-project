@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue'
 import GoodsComment from './goods-comment.vue'
 import GoodsDetail from './goods-detail.vue'

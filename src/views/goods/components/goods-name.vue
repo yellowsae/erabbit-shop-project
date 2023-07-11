@@ -31,9 +31,9 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import XtxCity from "@/components/library/xtx-city.vue"
-const props = defineProps({
+const props: any = defineProps({
   goods: {
-    type: Array,
+    type: Object,
     default: () => []
   }
 })

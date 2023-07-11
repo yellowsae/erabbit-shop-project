@@ -31,7 +31,7 @@
 import XtxCheckbox from "@/components/library/xtx-checkbox.vue"
 import { inject } from "vue"
 
-const reqParams = inject('reqParams')
+const reqParams: any = inject('reqParams')
 
 const changeSort = (sortField: any = undefined) => {
   // 1.0 先收集排序方式
