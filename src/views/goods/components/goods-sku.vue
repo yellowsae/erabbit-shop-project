@@ -113,20 +113,20 @@ import bwPowerSet from '@/vender/power-set'
 // 自定义规格分隔符
 const spliter = '★'
 // 获取查询字典
-const getPathMap = (skus: any) => {
+const getPathMap = (skus) => {
   // 1. 得到所有的sku集合  props.goods.skus
   // 2. 从所有的sku中筛选出有效的sku
   // 3. 根据有效的sku使用power-set算法得到子集
   // 4. 根据子集往路径字典对象中存储 key-value
-  const pathMap:any = {}
+  const pathMap = {}
   // console.log(skus)
   // 遍历当前商品的所有 skus
-  skus.forEach((sku: any) => {
+  skus.forEach((sku) => {
     // 获取有库存的 sku
     if (sku.inventory) {
       // console.log('有库存的sku', sku)
       // PowerSet 算法处理规格所有组合
-      const powerSetRes = bwPowerSet(sku.specs.map((item: any) => item.valueName))
+      const powerSetRes = bwPowerSet(sku.specs.map((item) => item.valueName))
       // console.log(powerSetRes, sku.id)
       // 处理成查询字典
       powerSetRes.forEach(item => {
@@ -151,10 +151,10 @@ const getPathMap = (skus: any) => {
 }
 
 // 获取当前选中的规格的集合 - 用于模拟用户下一次的动作
-const getSelectedArr = (specs: any) => {
+const getSelectedArr = (specs) => {
   // console.log(specs)
   // 当前选中的规格的集合 ['颜色（名字）','产地（名字）','尺寸（名字）']
-  const selectedArr: any = []
+  const selectedArr = []
   // 遍历整个规格
   specs.forEach(spec => {
     // console.log(spec)
